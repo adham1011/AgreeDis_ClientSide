@@ -2,7 +2,9 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types';
 import {login} from '../actions/authActions'
-// import router from '../router/router'
+import router from '../router/router'
+import { Redirect } from 'react-router-dom';
+
 
 class LoginForm extends Component{
     constructor(props) {
@@ -30,6 +32,8 @@ class LoginForm extends Component{
         this.props.login(this.state).then(
             res=>{
                 console.log(`res: ${res}`);
+                this.context.router.history.push('/dashboard')
+
             },
             err =>{
                 console.log(`err : ${err}`);
