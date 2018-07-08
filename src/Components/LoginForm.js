@@ -28,6 +28,12 @@ class LoginForm extends Component{
     onSubmit(e){
         e.preventDefault();
         this.props.login(this.state).then(
+            res=>{
+                console.log(`res: ${res}`);
+            },
+            err =>{
+                console.log(`err : ${err}`);
+            }
         );
     }
 

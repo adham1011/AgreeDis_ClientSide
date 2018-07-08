@@ -2,16 +2,14 @@ import React, { Component } from "react"
 import { NavLink } from "react-router-dom"
 import { Icon } from 'react-icons-kit'
 import {plusCircle} from 'react-icons-kit/fa/plusCircle'
+import {connect} from 'react-redux'
+import PropTypes from 'prop-types';
 
 
 // export const plusCircle () => <Icon icon={plusCircle} />
 
 class Header extends Component {
-    active = {
-        backgroundColor: "#212F3D",
-        color: "white",
-        fontWeight: "bold"
-    };
+
     header = {
         listStyle: "none",
         display: "flex",
@@ -29,7 +27,7 @@ class Header extends Component {
                     <div className="navbar-item">
                         <div className="field has-addons">
                             <div className="control">
-                                <input className="input" type="text" name="search" placeholder="Search"/>
+                                <input className="input" type="text" name="search" placeholder="Search..."/>
                             </div>
                             <div className="control">
                                 <a className="button is-info">
@@ -49,7 +47,7 @@ class Header extends Component {
                     <div className="navbar-item has-dropdown is-hoverable">
                         <a className="navbar-link">
                             <figure className="image is-32x32">
-                                <img src="https://www.shareicon.net/data/2016/08/05/806962_user_512x512.png"/>
+                                <img src={this.props.user.img}/>
                             </figure>
                          </a>
                         <div className="navbar-dropdown is-right ">
@@ -63,7 +61,17 @@ class Header extends Component {
 
 );}}
 
-export default Header;
+Header.propTypes = {
+    user : PropTypes.object.isRequired
+}
+
+function mapStateToProps(state){
+    return{
+        user : state.auth.user
+    }
+}
+
+export default connect(mapStateToProps)(Header);
 
 
 

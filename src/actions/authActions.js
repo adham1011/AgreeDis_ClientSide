@@ -5,8 +5,10 @@ import { SET_CURRENT_USER } from './types'
 
 
 export function setCurrentUser(user){
-    type: SET_CURRENT_USER ,
-    user
+    return{
+        type: SET_CURRENT_USER ,
+        user
+    };
 }
 
 
@@ -16,6 +18,7 @@ export function login(data){
                 const token = res.data.token
                 localStorage.setItem('jwtToken',token);
                 setAuthorizationToken(token);
+                console.log(jwtDecode(token));
                 dispatch(setCurrentUser(jwtDecode(token)));
             })
     }
