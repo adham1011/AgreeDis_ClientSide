@@ -2,8 +2,11 @@ import React, { Component } from "react"
 import { NavLink } from "react-router-dom"
 import { Icon } from 'react-icons-kit'
 import {plusCircle} from 'react-icons-kit/fa/plusCircle'
+import {signOut} from 'react-icons-kit/fa/signOut'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types';
+import {logout} from './actions/authActions'
+
 
 
 // export const plusCircle () => <Icon icon={plusCircle} />
@@ -15,7 +18,13 @@ class Header extends Component {
         display: "flex",
         justifyContent: "space-evenly"
     };
+
+    logout(e){
+        e.preventDefault();
+        this.props.logout();
+    }
     render() {
+        const { isAuthenticated } = this.props.auth.isAuthenticated;
         return (
             <nav className="navbar is-warning">
                 <div className="navbar-brand">
@@ -47,13 +56,21 @@ class Header extends Component {
                     <div className="navbar-item has-dropdown is-hoverable">
                         <a className="navbar-link">
                             <figure className="image is-32x32">
-                                <img src={this.props.user.img}/>
+                                <img src={this.props.auth.user.img}/>
                             </figure>
                          </a>
-                        <div className="navbar-dropdown is-right ">
+                        <div className="navbar-dropdown is-right" style={{marginRight: '1rem'}}>
                             <a className="navbar-item" href="#">
-                                Modifiers
+                                My Profile
                             </a>
+                            <a className="navbar-item" href="#">
+                                My Debates
+                            </a>
+                            
+                            <hr className="navbar-divider"/>
+                                <button className="button is-danger  is-fullwidth" onClick={this.logout.bind(this)}>
+                                Log Out&nbsp;&nbsp;<Icon icon={signOut}/>  </button>
+                            
                         </div>
                     </div>
                 </div>
@@ -62,16 +79,17 @@ class Header extends Component {
 );}}
 
 Header.propTypes = {
-    user : PropTypes.object.isRequired
+    auth : PropTypes.object.isRequired,
+    logout: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state){
     return{
-        user : state.auth.user
+        auth : state.auth
     }
 }
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps,{ logout })(Header);
 
 
 
