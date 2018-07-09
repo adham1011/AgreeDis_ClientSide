@@ -31,7 +31,6 @@ class LoginForm extends Component{
         e.preventDefault();
         this.props.login(this.state).then(
             res=>{
-                console.log(`res: ${res}`);
                 this.context.router.history.push('/dashboard')
 
             },
