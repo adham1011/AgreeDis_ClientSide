@@ -18,6 +18,13 @@ class Authenticate extends Component{
             <ComposedComponent {...this.props} />
         );
     }
+
+    componentWillUpdate(nextProps){
+        if(!nextProps.isAuthenticated){
+            this.context.router.history.push('/');
+        }
+
+    }
 }
 
 Authenticate.propTypes = {

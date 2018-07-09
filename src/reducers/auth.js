@@ -2,8 +2,8 @@ import {SET_CURRENT_USER} from '../actions/types';
 import isEmpty from 'lodash/isEmpty'
 const initialState = {
     isAuthenticated: false,
-    user: {}
-
+    user: {},
+    // nav:'none'
 }
 
 export default (state = initialState, action = {})=>{
@@ -11,7 +11,8 @@ export default (state = initialState, action = {})=>{
         case SET_CURRENT_USER:
             return{
                 isAuthenticated: !isEmpty(action.user),
-                user: action.user
+                user: action.user,
+                // nav:'block'
             };
         default: return state;
     }

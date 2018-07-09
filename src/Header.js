@@ -13,6 +13,7 @@ import {logout} from './actions/authActions'
 
 class Header extends Component {
 
+
     header = {
         listStyle: "none",
         display: "flex",
@@ -24,9 +25,9 @@ class Header extends Component {
         this.props.logout();
     }
     render() {
-        const { isAuthenticated } = this.props.auth.isAuthenticated;
+        // const { isAuthenticated } = this.props.auth.isAuthenticated;
         return (
-            <nav className="navbar is-warning">
+            <nav className="navbar is-warning" style={{display: this.props.auth.isAuthenticated ? 'flex' : 'none' }}>
                 <div className="navbar-brand">
                     <a className="navbar-item" href="#">
                     <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28"/>
