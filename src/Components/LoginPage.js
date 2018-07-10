@@ -17,7 +17,7 @@ class LoginPage extends Component {
                             <h2 className="subtitle has-text-grey">Please login to proceed.</h2>
                             <div className="box is-white">
                                 <figure className="avatar">
-                                    <img src="https://placehold.it/128x128"/>
+                                    <img src="https://placehold.it/128x128" alt="user-img"/>
                                 </figure>
                                 <LoginForm />
                             </div>

@@ -25,3 +25,11 @@ body {
   padding: 1rem;
   z-index: 100;
  }
+
+.navbar-item > .plus-icon{
+  color :#FF6B67;
+}
+
+.navbar-item > .plus-icon:hover{
+ color:#bd4441;
+}

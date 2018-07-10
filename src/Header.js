@@ -49,11 +49,13 @@ class Header extends Component {
                 </div>
 
                 <div className="navbar-end">
-                    <div className="navbar-item">
-                        <div style={{color:'#FF6B67'}}>
-                            <Icon size={30} icon={plusCircle}/>
-                        </div>
-                    </div>
+                    
+                        <NavLink to="/createDebate" className="navbar-item">
+                            <div className="plus-icon">
+                                <Icon size={30} icon={plusCircle}/>
+                            </div>
+                        </NavLink>
+                    
                     <div className="navbar-item has-dropdown is-hoverable">
                         <a className="navbar-link">
                             <figure className="image is-32x32">
