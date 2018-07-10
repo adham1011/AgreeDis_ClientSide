@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import router from '../router/router'
+// import router from '../router/router'
 
 
 export default function (ComposedComponent){
