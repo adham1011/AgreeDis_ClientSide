@@ -15,7 +15,6 @@ export function setCurrentUser(user){
 export function login(data){
     return dispatch =>{
         return axios.post('http://agree-dis.herokuapp.com/profile/signIn',data).then(res =>{
-                console.log(res.Error);
                 const token = res.data.token
                 localStorage.setItem('jwtToken',token);
                 setAuthorizationToken(token);

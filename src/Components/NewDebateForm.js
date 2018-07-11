@@ -33,8 +33,7 @@ class NewDebateForm extends Component{
         e.preventDefault();
         this.props.saveDebate(this.state).then(
             res=>{
-                // this.context.router.history.push('/dashboard')
-                console.log(res);
+                this.context.router.history.push('/dashboard')
 
             },
             err =>{
@@ -81,8 +80,8 @@ class NewDebateForm extends Component{
 //     login : PropTypes.func.isRequired
 // }
 
-// LoginForm.contextTypes = {
-//     router: PropTypes.object.isRequired
-// }
+NewDebateForm.contextTypes = {
+    router: PropTypes.object.isRequired
+}
 
 export default connect(null,{ saveDebate }) (NewDebateForm);
