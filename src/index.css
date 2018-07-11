@@ -33,3 +33,23 @@ body {
 .navbar-item > .plus-icon:hover{
  color:#bd4441;
 }
+
+
+.google-button{
+   /* display: block;*/
+    background: rgb(209, 72, 54);
+    color: rgb(255, 255, 255);
+/*    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    font-size: 1.25rem;*/
+    font-weight: 500;
+    font-family: Roboto;
+    margin-top: 1rem;
+}
+
+.columns{
+  margin-top: .75rem;
+}

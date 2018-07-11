@@ -50,7 +50,7 @@ class Header extends Component {
 
                 <div className="navbar-end">
                     
-                        <NavLink to="/createDebate" className="navbar-item">
+                        <NavLink to="/debates/createDebate" className="navbar-item">
                             <div className="plus-icon">
                                 <Icon size={30} icon={plusCircle}/>
                             </div>
@@ -66,9 +66,9 @@ class Header extends Component {
                             <a className="navbar-item" href="#">
                                 My Profile
                             </a>
-                            <a className="navbar-item" href="#">
+                            <NavLink className="navbar-item" to="/debates/myDebates">
                                 My Debates
-                            </a>
+                            </NavLink>
                             
                             <hr className="navbar-divider"/>
                                 <button className="button is-danger  is-fullwidth" onClick={this.logout.bind(this)}>
