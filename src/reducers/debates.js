@@ -1,5 +1,6 @@
 import { SET_DEBATES } from '../actions/types';
 
+
 export default function debates(state = [], action = {}){
     switch(action.type){
         case SET_DEBATES:
@@ -7,3 +8,4 @@ export default function debates(state = [], action = {}){
         default: return state;
     }
 }
+
