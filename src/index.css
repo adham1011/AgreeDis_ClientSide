@@ -50,6 +50,12 @@ body {
     margin-top: 1rem;
 }
 
-.columns{
+/*.columns{
   margin-top: .75rem;
+}*/
+.column {
+  z-index: 1;
+}
+.media .subtitle{
+  margin-top: 0.5rem;
 }

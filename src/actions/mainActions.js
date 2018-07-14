@@ -1,5 +1,6 @@
 import axios from 'axios';
-import {SET_DEBATES} from './types';
+import { SET_DEBATES } from './types';
+import { SET_DEBATES_USERS } from './types';
 
 export function setDebates(debates){
     return {
@@ -8,15 +9,24 @@ export function setDebates(debates){
     }
 }
 
+export function setDebatesUsers(users){
+    return{
+        type: SET_DEBATES_USERS,
+        users
+    }
+}
+
 export function fetchMyDebates(userId){
     return dispatch =>{
         axios.get(`http://agree-dis.herokuapp.com/debates/userDebate/${userId}`)
         .then(res => {
-            console.log(res.data);
-            dispatch(setDebates(res.data))
-        });    
+            console.log(res.data.docs);
+            dispatch(setDebatesUsers(res.data.users));
+            dispatch(setDebates(res.data.docs));
+        });
     }
 }
+
 
 export function saveDebate(data){
     return dispatch =>{
