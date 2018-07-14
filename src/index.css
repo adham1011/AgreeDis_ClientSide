@@ -59,3 +59,9 @@ body {
 .media .subtitle{
   margin-top: 0.5rem;
 }
+.vote-tools{
+    position: absolute;
+    width: 100%;
+    padding: 2.3rem;
+    bottom: 9rem;
+}
