@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { SET_DEBATES } from './types';
 import { SET_DEBATES_USERS } from './types';
+import { DELETE_DEBATE } from './types';
+
 
 export function setDebates(debates){
     return {
@@ -16,13 +18,36 @@ export function setDebatesUsers(users){
     }
 }
 
+export function deleteDebateFromList(debate){
+    return{
+        type: DELETE_DEBATE,
+        debate
+    }
+}
+
+
+export function deleteDebate(debateId){
+    return dispatch=>{
+        axios.delete(`http://agree-dis.herokuapp.com/debates/deleteDebate/${debateId}`)
+        .then(res=>{
+            let debate = {_id:debateId};
+            dispatch(deleteDebateFromList(debate));
+        });
+    }
+}
+
 export function fetchMyDebates(userId){
     return dispatch =>{
         axios.get(`http://agree-dis.herokuapp.com/debates/userDebate/${userId}`)
         .then(res => {
-            console.log(res.data.docs);
-            dispatch(setDebatesUsers(res.data.users));
-            dispatch(setDebates(res.data.docs));
+            if(res.data.docs){
+                dispatch(setDebatesUsers(res.data.users));
+                dispatch(setDebates(res.data.docs));
+            }else{
+                dispatch(setDebatesUsers([]));
+                dispatch(setDebates([]));
+
+            }
         });
     }
 }

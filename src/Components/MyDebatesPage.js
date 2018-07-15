@@ -16,7 +16,7 @@ render(){
     return(
         <div className="container">
             <h1 className="title is-4" style={{marginTop:"2rem"}}>My Debates</h1>
-                <MyDebatesList debates={this.props.debates} users={this.props.users}/>
+                <MyDebatesList />
         </div>
     )
 }
