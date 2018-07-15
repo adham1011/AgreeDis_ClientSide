@@ -3,3 +3,5 @@ export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 export const SET_DEBATES = 'SET_DEBATES';
 
 export const SET_DEBATES_USERS = 'SET_DEBATES_USERS';
+
+export const DELETE_DEBATE  = 'DELETE_DEBATE';

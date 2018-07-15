@@ -34,7 +34,7 @@ class NewDebateForm extends Component{
         e.preventDefault();
         this.props.saveDebate(this.state).then(
             res=>{
-                this.context.router.history.push('/dashboard')
+                this.context.router.history.push('/debates/myDebates');
 
             },
             err =>{
