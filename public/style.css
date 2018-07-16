@@ -18,7 +18,7 @@
   position: absolute;
   background: linear-gradient(to bottom, #0006 29%, #ffffff00 80%);
   padding: 1rem;
-  z-index: 100;
+  z-index: 2;
  }
 
 nav  .plus-icon{
@@ -48,11 +48,12 @@ nav .plus-icon:hover{
 /*.columns{
   margin-top: .75rem;
 }*/
-.column {
-  z-index: 1;
+.column , .columns , .container, .card-image, {
+  z-index: 0 !important;
 }
+
 .dropdown{
-  z-index: 10737373;
+  z-index: 20;
 }
 .media .subtitle{
   margin-top: 0.5rem;
@@ -73,10 +74,14 @@ nav{
     top: 53%;
     z-index: 10;
 }
-<<<<<<< HEAD
+ .card h2{
+  width: 100%;
+  position: absolute;
+  background: linear-gradient(to bottom, #0006 29%, #ffffff00 80%);
+  padding: 1rem;
+  z-index: 2;
+ }
 
-=======
 /*.image{
   overflow: hidden;
 }*/
->>>>>>> 4c17664add4729bf46a048022326ae4f01a4ce61

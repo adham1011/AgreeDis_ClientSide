@@ -32,7 +32,7 @@ render(){
     return(
         <div className="container">
             <h1 className="title is-4" style={{marginTop:"2rem"}}>My Debates</h1>
-              {this.state.fetching ? this.loading  : <MyDebatesList/> }
+                <MyDebatesList/>
         </div>
     )
 }

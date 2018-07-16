@@ -20,21 +20,9 @@ class MyDebatesList extends Component{
      this.voteButtonClick = this.voteButtonClick.bind(this);
      this.eachDebate = this.eachDebate.bind(this);
      this.progress = this.progress.bind(this);
-     // this.getUser   = this.getUser.bind(this);
-
-    // this.update     = this.update.bind(this);
-    // this.delete     = this.delete.bind(this);
-    // this.add        = this.add.bind(this)
-    // this.nextID     = this.nextID.bind(this)
   }
 
-    // const emptyMessage = (
-    //     <p>You Don't Have any Debate Yet</p>
-    // );
 
-    // getUser(id){
-    //    this.state.user = selectUser(this.props.users,id);
-    // }
 
 
 
@@ -61,10 +49,6 @@ class MyDebatesList extends Component{
         let debate = this.props.debates[i];
         let cVotes = debate.collaborator.collaborator_votes;
         let oVotes = debate.owner.owner_votes;
-
-        console.log(debate);
-        console.log(cVotes);
-        console.log(oVotes);
 
             if(cVotes>oVotes){
                 let percent = ((cVotes/(oVotes+cVotes))*100);
@@ -97,9 +81,9 @@ class MyDebatesList extends Component{
                     <div className="media">
                         <div className="media-left">
                             <figure className="image avatar is-96x96">
-                                <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image"/>
+                                <img src={selectUser(this.props.users, debate.owner.owner_id).profile.imgSrc} alt="owner" style={{'maxHeight':'96px','maxWidth':'96px'}}/>
                             </figure>
-                            <h4 className="subtitle has-text-centered">Natalie</h4>
+                            <h4 className="subtitle has-text-centered">{selectUser(this.props.users,debate.owner.owner_id).profile.name.first}</h4>
                         </div>
                         <div className="media-content has-text-centered" style={{'marginTop':'2.5rem'}}>
                             {this.progress(i)}
@@ -108,7 +92,7 @@ class MyDebatesList extends Component{
                         </div>
                         <div className="media-right">
                             <figure className="image avatar is-96x96">
-                                <img src={selectUser(this.props.users, debate.collaborator.collaborator_id).profile.imgSrc} alt="Placeholder image"/>
+                                <img src={selectUser(this.props.users, debate.collaborator.collaborator_id).profile.imgSrc} alt="collabrator" style={{'maxHeight':'96px','maxWidth':'96px'}}/>
                             </figure>
                             <h4 className="subtitle has-text-centered">{selectUser(this.props.users, debate.collaborator.collaborator_id).profile.name.first}</h4>
                         </div>
