@@ -1,11 +1,14 @@
-import React, { Component } from "react"
-import { NavLink } from "react-router-dom"
-import { Icon } from 'react-icons-kit'
-import {plusCircle} from 'react-icons-kit/fa/plusCircle'
+import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
+import { Icon } from 'react-icons-kit';
+import {plusCircle} from 'react-icons-kit/fa/plusCircle';
 import {signOut} from 'react-icons-kit/fa/signOut'
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {logout} from './actions/authActions'
+import {logout} from './actions/authActions';
+
+
+
 
 
 
@@ -27,24 +30,89 @@ class Header extends Component {
     render() {
         // const { isAuthenticated } = this.props.auth.isAuthenticated;
         return (
-            <nav className="navbar is-warning" style={{display: this.props.auth.isAuthenticated ? 'flex' : 'none' }}>
-                <div className="navbar-brand">
-                    <a className="navbar-item" href="#">
-                    <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28"/>
-                    </a>
-                </div>
-                <div className="navbar-start">
-                    <div className="navbar-item">
-                        <div className="field has-addons">
-                            <div className="control">
-                                <input className="input" type="text" name="search" placeholder="Search..."/>
+            <nav className="container is-fullhd">
+                <div className="columns is-mobile is-desktop">
+                    <div className="column is-three-fifths-mobile is-three-fifths-desktop">
+                        <form >
+                            <div className="field">
+                                <div className="control is-expanded">
+                                    <input className="input" type="text" name="search" placeholder="Search..."/>
+                                </div>
                             </div>
-                            <div className="control">
-                                <a className="button is-info">
-                                    Search
-                                </a>
+                        </form>
+                    </div>
+
+
+                        <div className="column is-2-mobile is-2-desktop ">
+                            <NavLink to="/debates/createDebate">
+                                <div className="plus-icon">
+                                    <Icon size={30} icon={plusCircle}/>
+                                </div>
+                            </NavLink>
+                        </div>
+
+                        <div className="column is-2-mobile">
+                            <div className="dropdown is-hoverable">
+                                <div className="dropdown-trigger">
+                                    <figure className="image is-32x32" >
+                                        <img src={this.props.auth.user.img} style={{'borderRadius':'50%'}}/>
+                                    </figure>
+                                    <div className="dropdown-menu" id="dropdown-menu4" role="menu">
+                                        <div className="dropdown-content">
+                                            <div className="dropdown-item">
+                                                <NavLink className="navbar-item" to="/debates/myDebates">
+                                                    My Debates
+                                                </NavLink>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+   
+            </div>
+        </nav>
+
+
+);}}
+
+Header.propTypes = {
+    auth : PropTypes.object.isRequired,
+    logout: PropTypes.func.isRequired
+}
+
+function mapStateToProps(state){
+    return{
+        auth : state.auth
+    }
+}
+
+export default connect(mapStateToProps,{ logout })(Header);
+
+
+
+
+/*
+
+
+            <div style={this.header}>
+                <NavLink exact to="/" activeStyle={this.active}>
+                Home
+                </NavLink>
+                <NavLink to="/MyIdeas" activeStyle={this.active}>
+                My Ideas
+                </NavLink>
+            </div>
+*/
+
+
+
+/*
+            <nav className="navbar is-warning" style={{display: this.props.auth.isAuthenticated ? 'flex' : 'none' }}>
+                <div className="navbar-start">
+                    <div className="navbar-item">
+
                     </div>
                 </div>
 
@@ -79,33 +147,11 @@ class Header extends Component {
                 </div>
             </nav>
 
-);}}
-
-Header.propTypes = {
-    auth : PropTypes.object.isRequired,
-    logout: PropTypes.func.isRequired
-}
-
-function mapStateToProps(state){
-    return{
-        auth : state.auth
-    }
-}
-
-export default connect(mapStateToProps,{ logout })(Header);
 
 
 
 
-/*
-
-
-            <div style={this.header}>
-                <NavLink exact to="/" activeStyle={this.active}>
-                Home
-                </NavLink>
-                <NavLink to="/MyIdeas" activeStyle={this.active}>
-                My Ideas
-                </NavLink>
-            </div>
 */
+
+
+

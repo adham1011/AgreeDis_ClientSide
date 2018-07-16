@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import registerServiceWorker from './registerServiceWorker';
+// import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import { createStore , applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
@@ -33,4 +33,4 @@ ReactDOM.render(
         </Provider>
     </Router>, 
     document.getElementById('root'));
-registerServiceWorker();
+// registerServiceWorker();

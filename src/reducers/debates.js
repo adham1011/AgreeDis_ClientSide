@@ -3,6 +3,7 @@ import { DELETE_DEBATE } from '../actions/types';
 
 
 
+
 export default function debates(state = [], action = {}){
     switch(action.type){
         case SET_DEBATES:
