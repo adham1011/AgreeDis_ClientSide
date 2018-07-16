@@ -26,7 +26,7 @@ class Debate extends Component {
 
 
 toggleTools(){
-  if(this.state.showTools == 'none'){
+  if(this.state.showTools === 'none'){
     this.setState({showTools:'flex'})
   }else{
     this.setState({showTools:'none'})
@@ -58,7 +58,7 @@ handleVote(e){
       <div className='Debate'>
           <div>
             <div className="vote-button">
-              {this.props.debates[this.state.index].basic_info.status == 2  &&
+              {this.props.debates[this.state.index].basic_info.status === 2  &&
               <button className="button is-success is-rounded " style={{'bottom':"-7rem"}} onClick={this.toggleTools}>DESIDE</button>
               }
             </div>

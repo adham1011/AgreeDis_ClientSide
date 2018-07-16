@@ -13,11 +13,13 @@ class MyDebatesList extends Component{
     constructor(props) {
     super(props);
     this.state = {
+
     }
      // this.debatesList   = this.debatesList.bind(this);
      this.generateStatus = this.generateStatus.bind(this);
      this.voteButtonClick = this.voteButtonClick.bind(this);
      this.eachDebate = this.eachDebate.bind(this);
+     this.progress = this.progress.bind(this);
      // this.getUser   = this.getUser.bind(this);
 
     // this.update     = this.update.bind(this);
@@ -55,6 +57,30 @@ class MyDebatesList extends Component{
         }
 
     }
+    progress(i){
+        let debate = this.props.debates[i];
+        let cVotes = debate.collaborator.collaborator_votes;
+        let oVotes = debate.owner.owner_votes;
+
+        console.log(debate);
+        console.log(cVotes);
+        console.log(oVotes);
+
+            if(cVotes>oVotes){
+                let percent = ((cVotes/(oVotes+cVotes))*100);
+                return <progress className="progress is-warning" value={percent} max="100">
+                 `${percent}%`
+                  </progress>
+            }else if(cVotes === oVotes){
+               return <progress className="progress is-danger" value='100' max="100">
+                </progress>
+            }else{
+                 let percent = ((oVotes/(oVotes+cVotes))*100);
+                return <progress className="progress is-info" value={percent} max="100">
+                 `${percent}%`
+                </progress> 
+            }
+    }
 
     eachDebate(debate,i){
         return(
@@ -76,8 +102,7 @@ class MyDebatesList extends Component{
                             <h4 className="subtitle has-text-centered">Natalie</h4>
                         </div>
                         <div className="media-content has-text-centered" style={{'marginTop':'2.5rem'}}>
-                            <progress className="progress is-info" value="90" max="100">
-                            </progress>
+                            {this.progress(i)}
                             <div>{this.generateStatus(debate.basic_info.status)}</div>
 
                         </div>
