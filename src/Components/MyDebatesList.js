@@ -71,7 +71,7 @@ class MyDebatesList extends Component{
                 return <progress className="progress is-warning" value={percent} max="100">
                  `${percent}%`
                   </progress>
-            }else if(cVotes == oVotes){
+            }else if(cVotes === oVotes){
                return <progress className="progress is-danger" value='100' max="100">
                 </progress>
             }else{
