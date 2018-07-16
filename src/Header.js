@@ -30,7 +30,7 @@ class Header extends Component {
     render() {
         // const { isAuthenticated } = this.props.auth.isAuthenticated;
         return (
-            <nav className="container is-fullhd">
+            <nav className="container is-fullhd" style={{display: this.props.auth.isAuthenticated ? 'block' : 'none' }}>
                 <div className="columns is-mobile is-desktop">
                     <div className="column is-three-fifths-mobile is-three-fifths-desktop">
                         <form >

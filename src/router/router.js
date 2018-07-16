@@ -8,7 +8,8 @@ import MyNotification from "../Components/MyNotification";
 
 import Header from "../Header";
 
-import requireAuth from '../utils/requireAuth'
+import requireAuth from '../utils/requireAuth';
+import AuthCheck '../utils/requireAuth';
 
 const ReactRouter =()=>{
     return (
