@@ -8,16 +8,31 @@ import {fetchMyDebates} from '../actions/mainActions';
 
 
 class MyDebatesPage extends Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            fetching:false
+        }
+        this.loading = this.loading.bind(this);
+    }
 
 componentDidMount(){
-    this.props.fetchMyDebates(this.props.user.id);
+        this.setState({fetching:true})
+        this.props.fetchMyDebates(this.props.user.id)
+        this.setState({fetching:false})
+
+}
+loading(){
+    return(
+        <button className="button is-fullwidth is-large is-loading is-info">Loading</button>
+    )
 }
 
 render(){
     return(
         <div className="container">
             <h1 className="title is-4" style={{marginTop:"2rem"}}>My Debates</h1>
-                <MyDebatesList />
+              {this.state.fetching ? this.loading  : <MyDebatesList/> }
         </div>
     )
 }

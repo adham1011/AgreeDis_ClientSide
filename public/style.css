@@ -21,11 +21,11 @@
   z-index: 100;
  }
 
-.navbar-item > .plus-icon{
+nav  .plus-icon{
   color :#FF6B67;
 }
 
-.navbar-item > .plus-icon:hover{
+nav .plus-icon:hover{
  color:#bd4441;
 }
 
@@ -51,6 +51,9 @@
 .column {
   z-index: 1;
 }
+.dropdown{
+  z-index: 10737373;
+}
 .media .subtitle{
   margin-top: 0.5rem;
 }
@@ -62,7 +65,7 @@
 
 }
 nav{
-  padding: 5px;
+  padding: 1rem;
 }
 .vote-button{
     position: absolute;
@@ -70,4 +73,10 @@ nav{
     top: 53%;
     z-index: 10;
 }
+<<<<<<< HEAD
 
+=======
+/*.image{
+  overflow: hidden;
+}*/
+>>>>>>> 4c17664add4729bf46a048022326ae4f01a4ce61
