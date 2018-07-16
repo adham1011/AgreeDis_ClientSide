@@ -133,13 +133,6 @@ function mapStateToProps(state){
 
 export default connect(mapStateToProps)(MyDebatesList);
 
-// export default MyDebatesList;
-
-// LoginForm.contextTypes = {
-//     router: PropTypes.object.isRequired
-// }
-
-
 
 
 
