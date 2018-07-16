@@ -52,19 +52,23 @@ class Header extends Component {
                         </div>
 
                         <div className="column is-2-mobile">
-                            <div className="dropdown is-hoverable">
+                            <div className="dropdown is-right is-hoverable">
                                 <div className="dropdown-trigger">
                                     <figure className="image is-32x32" >
                                         <img src={this.props.auth.user.img} style={{'borderRadius':'50%'}}/>
                                     </figure>
-                                    <div className="dropdown-menu" id="dropdown-menu4" role="menu">
-                                        <div className="dropdown-content">
-                                            <div className="dropdown-item">
-                                                <NavLink className="navbar-item" to="/debates/myDebates">
+                                    <div className="dropdown-menu" role="menu" >
+                                        <div className="dropdown-content" >
+                                                <NavLink className="dropdown-item" to="/debates/myDebates">
                                                     My Debates
                                                 </NavLink>
-
-                                            </div>
+                                                <NavLink className="dropdown-item" to="/profile/notification">
+                                                    My notification
+                                                </NavLink>
+                                            <hr className="dropdown-divider"/>
+                                            <button className="button is-danger is-fullwidth navbar-item" onClick={this.logout.bind(this)}>
+                                                Log Out&nbsp;&nbsp;<Icon icon={signOut}/> 
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
