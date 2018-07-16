@@ -6,7 +6,8 @@ import NewDebatePage from "../Components/NewDebatePage";
 import MyDebatesPage from "../Components/MyDebatesPage";
 import Header from "../Header";
 
-import requireAuth from '../utils/requireAuth'
+import requireAuth from '../utils/requireAuth';
+import AuthCheck '../utils/requireAuth';
 
 const ReactRouter =()=>{
     return (
