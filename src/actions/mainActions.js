@@ -35,6 +35,23 @@ export function deleteDebate(debateId){
         });
     }
 }
+export function fetchMyDashBoard(){
+    return dispatch => {
+        axios.get(`http://agree-dis.herokuapp.com/debates/dashBoard`)
+        .then(
+            res=>{
+                if(res.data){
+                    dispatch(setDebatesUsers(res.data.users));
+                    dispatch(setDebates(res.data.debates));
+
+                }else{
+                    dispatch(setDebatesUsers([]));
+                    dispatch(setDebates([]));
+                }
+            }
+        );
+    }
+}
 
 export function fetchMyDebates(userId){
     return dispatch =>{
