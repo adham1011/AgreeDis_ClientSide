@@ -10,10 +10,6 @@ class Authenticate extends Component{
     componentWillMount(){
         if(!this.props.isAuthenticated){
             this.context.router.history.push('/');
-        }else{
-            if(this.props.location.pathname == '/')
-                this.context.router.history.push('/dashboard');
-
         }   
     }
 

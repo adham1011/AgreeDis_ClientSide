@@ -40,9 +40,9 @@ export function fetchMyDashBoard(){
         axios.get(`http://agree-dis.herokuapp.com/debates/dashBoard`)
         .then(
             res=>{
-                if(res.data){
+                if(res.data.doc){
                     dispatch(setDebatesUsers(res.data.users));
-                    dispatch(setDebates(res.data.debates));
+                    dispatch(setDebates(res.data.doc));
 
                 }else{
                     dispatch(setDebatesUsers([]));

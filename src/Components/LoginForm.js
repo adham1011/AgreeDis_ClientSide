@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {login} from '../actions/authActions';
-import { GoogleLogin } from 'react-google-login';
+// import { GoogleLogin } from 'react-google-login';
 
 
 class LoginForm extends Component{
@@ -68,14 +68,6 @@ class LoginForm extends Component{
                         </label>
                     </div>
                     <button type="submit" className="button is-block is-info is-medium is-fullwidth">Login</button>
-
-                      <GoogleLogin
-                        className="button is-block is-fullwidth is-medium google-button"
-                        clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
-                        buttonText="Login with Google"
-                        onSuccess={responseGoogle}
-                        onFailure={responseGoogle}
-                    />
                 </form>
  
     )}
@@ -90,3 +82,13 @@ LoginForm.contextTypes = {
 }
 
 export default connect( null , { login }) (LoginForm);
+
+
+/*
+                      <GoogleLogin
+                        className="button is-block is-fullwidth is-medium google-button"
+                        clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+                        buttonText="Login with Google"
+                        onSuccess={responseGoogle}
+                        onFailure={responseGoogle}
+                    />*/
