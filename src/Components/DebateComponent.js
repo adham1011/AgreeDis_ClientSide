@@ -12,7 +12,7 @@ class Debate extends Component {
     super(props);
     this.state = {
       showTools:'none',
-      index:this.props.index 
+      index:this.props.index
     }
     this.renderUI   = this.renderUI.bind(this);
     this.toggleTools = this.toggleTools.bind(this);
@@ -52,14 +52,14 @@ handleVote(e){
 }
 
 
-
   renderUI() {
     return (
       <div className='Debate'>
           <div>
             <div className="vote-button">
-              {this.props.debates[this.state.index].basic_info.status === 2  &&
-              <button className="button is-success is-rounded " style={{'bottom':"-7rem"}} onClick={this.toggleTools}>DESIDE</button>
+              {
+                this.props.debates[this.state.index].basic_info.status === 2  &&
+                <button className="button is-success is-rounded " style={{'bottom':"-45px"}} onClick={this.toggleTools}>DESIDE</button>
               }
             </div>
           {this.props.children}
@@ -78,7 +78,9 @@ handleVote(e){
               </div>
 
             </div>
-        <button className="button is-fullwidth is-danger" onClick={this.handleDeleteDebate}>DELETE</button>
+        {this.props.debates[this.state.index].owner.owner_id === this.props.user.id &&
+          <button className="button is-fullwidth is-danger" onClick={this.handleDeleteDebate}>DELETE</button>
+        }
       </div>
     );
   }

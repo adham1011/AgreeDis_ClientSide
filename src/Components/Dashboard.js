@@ -17,7 +17,7 @@ render(){
     return(
         <div className="container">
             <h1 className="title is-4" style={{marginTop:"2rem"}}>Recent Debates</h1>
-                <MyDebatesList/>
+                 <MyDebatesList/> 
         </div>
     )
 }

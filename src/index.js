@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import rootReducer from './rootReducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
-import {BrowserRouter as Router} from 'react-router-dom';
+import {HashRouter as Router} from 'react-router-dom';
 import ReactRouter from './router/router';
 import setAuthorizationToken from './utils/setAuthorizationToken'
 import jwtDecode from 'jwt-decode'
